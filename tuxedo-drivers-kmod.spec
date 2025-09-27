@@ -10,7 +10,7 @@ Summary:  Tuxedo drivers as kmod
 License:  GPL-2.0-or-later
 URL:      https://gitlab.com/tuxedocomputers/development/packages/tuxedo-drivers
 
-Source:   %{url}/-/archive/refs/tags/v%{version}.tar.gz
+Source:   %{url}/-/archive/v%{version}/tuxedo-drivers-v%{version}.tar.gz
 
 BuildRequires: kmodtool
 BuildRequires: kernel-devel
