@@ -10,7 +10,8 @@ Summary:  Tuxedo drivers as kmod
 License:  GPL-2.0-or-later
 URL:      https://gitlab.com/tuxedocomputers/development/packages/tuxedo-drivers
 
-Source:   %{url}/-/archive/refs/tags/v%{version}.tar.gz
+#Source:   %{url}/-/archive/refs/tags/v%{version}.tar.gz
+Source:   %{url}/-/archive/v%{version}/tuxedo-drivers-v%{version}.tar.gz
 
 BuildRequires: kmodtool
 BuildRequires: kernel-devel
@@ -51,25 +52,26 @@ done
 
 # Copy configs
 mkdir -p %{buildroot}%{_sysconfdir}/modprobe.d/
-cp tuxedo_keyboard.conf %{buildroot}%{_sysconfdir}/modprobe.d/tuxedo_keyboard.conf
+pwd
+cp etc/modprobe.d/tuxedo_keyboard.conf %{buildroot}%{_sysconfdir}/modprobe.d/tuxedo_keyboard.conf
 
 # Copy udev rules
 mkdir -p %{buildroot}/usr/lib/udev/rules.d/
-cp 99-tuxedo-fix-systemd-led-bootdelay.rules %{buildroot}/usr/lib/udev/rules.d/
-cp 99-tuxedo-fix-infinity-flex-touchpanel-toggle.rules %{buildroot}/usr/lib/udev/rules.d/
-cp 99-tuxedo-fix-nb02-touchpad-mouse.rules %{buildroot}/usr/lib/udev/rules.d/
+cp usr/lib/udev/rules.d/* %{buildroot}/usr/lib/udev/rules.d/
 
 # Copy udev hwdb
 mkdir -p %{buildroot}/usr/lib/udev/hwdb.d/
-cp 61-sensor-tuxedo.hwdb %{buildroot}/usr/lib/udev/hwdb.d/
-cp 61-keyboard-tuxedo.hwdb %{buildroot}/usr/lib/udev/hwdb.d/
+cp usr/lib/udev/hwdb.d/* %{buildroot}/usr/lib/udev/hwdb.d/
 
 %{?akmod_install}
 
 %files
-/usr/lib/udev/rules.d/99-tuxedo-fix-systemd-led-bootdelay.rules
-/usr/lib/udev/rules.d/99-tuxedo-fix-infinity-flex-touchpanel-toggle.rules
-/usr/lib/udev/rules.d/99-tuxedo-fix-nb02-touchpad-mouse.rules
+/usr/lib/udev/rules.d/99-tuxedo-fix-infinity-flex-touchpanel-toggle.rules 
+/usr/lib/udev/rules.d/99-tuxedo-fix-intel-gen13-sleep-state.rules  
+/usr/lib/udev/rules.d/99-tuxedo-fix-nb02-touchpad-mouse.rules  
+/usr/lib/udev/rules.d/99-tuxedo-fix-pulse-gen2-wakeup-through-nvme-controller.rules  
+/usr/lib/udev/rules.d/99-tuxedo-fix-realtek-rts522a-idle-behaviour.rules  
+/usr/lib/udev/rules.d/99-tuxedo-fix-systemd-led-bootdelay.rules  
 /usr/lib/udev/hwdb.d/61-sensor-tuxedo.hwdb
 /usr/lib/udev/hwdb.d/61-keyboard-tuxedo.hwdb
 %doc README.md
