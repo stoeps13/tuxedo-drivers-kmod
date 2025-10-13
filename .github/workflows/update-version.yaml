@@ -1,9 +1,9 @@
-on:
-  # schedule:
-  #   - cron: "0 14 * * *"
-  # push:
-  #   branches:
-  #     - main
+# on:
+# schedule:
+#   - cron: "0 14 * * *"
+# push:
+#   branches:
+#     - main
 
 jobs:
   update:

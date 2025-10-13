@@ -1,4 +1,5 @@
-on:
+---
+#on:
 
 jobs:
   build:
@@ -29,4 +30,3 @@ jobs:
       - name: List built RPMs
         run: |
           tree ~/rpmbuild/RPMS/
-
