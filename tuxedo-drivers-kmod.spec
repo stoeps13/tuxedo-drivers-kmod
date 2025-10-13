@@ -54,6 +54,10 @@ done
 mkdir -p %{buildroot}/usr/lib/udev/rules.d/
 cp usr/lib/udev/rules.d/* %{buildroot}/usr/lib/udev/rules.d/
 
+# Copy modprobe.d
+mkdir -p %{buildroot}/usr/lib/modprobe.d/
+cp usr/lib/modprobe.d/* %{buildroot}/usr/lib/modprobe.d/
+
 # Copy udev hwdb
 mkdir -p %{buildroot}/usr/lib/udev/hwdb.d/
 cp usr/lib/udev/hwdb.d/* %{buildroot}/usr/lib/udev/hwdb.d/
