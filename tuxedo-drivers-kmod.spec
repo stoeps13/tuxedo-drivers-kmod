@@ -61,6 +61,8 @@ cp usr/lib/udev/hwdb.d/* %{buildroot}/usr/lib/udev/hwdb.d/
 %{?akmod_install}
 
 %files
+/usr/lib/modprobe.d/tuxedo-drivers-backlist-upstream-conflicts.conf
+/usr/lib/udev/rules.d/99-tuxedo-fix-huawei-lte-modules-correct-drivers.rules
 /usr/lib/udev/rules.d/99-tuxedo-fix-infinity-flex-touchpanel-toggle.rules 
 /usr/lib/udev/rules.d/99-tuxedo-fix-intel-gen13-sleep-state.rules  
 /usr/lib/udev/rules.d/99-tuxedo-fix-nb02-touchpad-mouse.rules  
@@ -71,7 +73,5 @@ cp usr/lib/udev/hwdb.d/* %{buildroot}/usr/lib/udev/hwdb.d/
 /usr/lib/udev/hwdb.d/61-keyboard-tuxedo.hwdb
 %doc README.md
 %license debian/copyright
-
-%config(noreplace) %{_sysconfdir}/modprobe.d/tuxedo_keyboard.conf
 
 %changelog
