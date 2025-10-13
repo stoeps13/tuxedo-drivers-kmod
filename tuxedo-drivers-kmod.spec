@@ -50,11 +50,6 @@ for kernel_version in %{?kernel_versions}; do
   chmod a+x %{buildroot}/lib/modules/${kernel_version%%___*}/extra/tuxedo-drivers/*.ko
 done
 
-# Copy configs
-mkdir -p %{buildroot}%{_sysconfdir}/modprobe.d/
-pwd
-cp etc/modprobe.d/tuxedo_keyboard.conf %{buildroot}%{_sysconfdir}/modprobe.d/tuxedo_keyboard.conf
-
 # Copy udev rules
 mkdir -p %{buildroot}/usr/lib/udev/rules.d/
 cp usr/lib/udev/rules.d/* %{buildroot}/usr/lib/udev/rules.d/
